@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style type="text/css">
+  .image{
+    width: 500px;
+    height: 500px;
+    background-image:  linear-gradient( 
+                140deg, #3a9c50 0%, #006b18 100%);
+  }
+  .menu{
+    width: 500px;
+    height: 500px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-rows: 20% 60% 20%;
+  }
+  .encabezado{
+    color: white;
+  }
+  .guisados{
+    color: white;
+  }
+  .pie{
+    color: white;
+  }
+</style>
+<body>
+  <div class="image">
+    <section id="menu" class="menu">
+      <div id="encabezado" class="encabezado">
+        <p id="fecha" class="fecha"></p>
+        <p id="hoy" class="hoy"></p>
+      </div>
+      <div id="guisados" class="guisados">
+        
+      </div>
+      <div id="pie" class="pie">
+        <p>Buen provecho</p>
+      </div>
+    </section>
+  </div>
+
+  <section id="entradas" class="entradas">  
+    <input id="date" class='date' type="date">
+    <button id="addDate" class="addDate">Actualizar</button>
+    <input id="guisado" class="guisado" type="text">
+    <button id="addFood" class="addFood">Agregar</button>
+  </section>
+  
+  <script>
+    let guisado = document.getElementById('guisado')
+    let addFood = document.getElementById('addFood')
+    let addDate = document.getElementById('addDate')
+    let date = document.getElementById('date')
+    let fecha = document.getElementById('fecha')
+
+    addDate.onclick = () => {
+      if(date.value.length > 0){
+        fecha.innerHTML = date.value
+        hoy.innerHTML = 'HOY EN SAGAZ'
+      }
+    }
+
+    addFood.onclick = () => {
+      let texto = guisado.value
+      if(texto.length > 0){
+        let escribir = document.createElement('p')
+          escribir.id = 'opcion'
+          escribir.classList.add('opcion')
+          escribir.innerHTML = texto
+          guisados.appendChild(escribir)
+          guisado.value = ''
+        let quitar = document.createElement('button')
+          quitar.id = 'quitar'
+          quitar.classList.add('quitar')
+          escribir.appendChild(quitar)
+          quitar.onclick = () => {
+            quitar.parentElement.remove()
+          }
+      }
+    }
+  </script>
+</body>
+</html>
