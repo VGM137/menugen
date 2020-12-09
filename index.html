@@ -4,38 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="index.css">
 </head>
-<style type="text/css">
-  .menu{
-    width: 500px;
-    height: 500px;
-    box-sizing: border-box;
-    background-color: black;
-    display: grid;
-    grid-template-rows: 20% 60% 20%;
-  }
-  .encabezado{
-    color: white;
-  }
-  .guisados{
-    color: white;
-  }
-  .pie{
-    color: white;
-  }
-</style>
 <body>
 
     <section id="menu" class="menu">
-      <div id="encabezado" class="encabezado">
-        <p id="fecha" class="fecha"></p>
-        <p id="hoy" class="hoy"></p>
-      </div>
-      <div id="guisados" class="guisados">
-        
-      </div>
-      <div id="pie" class="pie">
-        <p>Buen provecho</p>
+      <div id="container" class="container">
+        <div id="encabezado" class="encabezado">
+          <p id="fecha" class="fecha" text-align="justify"></p>
+          <p id="hoy" class="hoy"></p>
+        </div>
+        <div id="guisados" class="guisados">
+          
+        </div>
+        <div id="pie" class="pie">
+          <p>BUEN PROVECHO</p>
+        </div>
       </div>
     </section>
 
@@ -47,7 +31,9 @@
     <button id="download" class="download">Descargar</button>
   </section>
   
-  <script src="\bower_components\dom-to-image\dist\dom-to-image.min.js"></script>
-  <script type="module" src="index.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
+  <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
+  <script typeof="module" src="/index.js"></script>
 </body>
 </html>

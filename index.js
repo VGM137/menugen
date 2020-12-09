@@ -1,6 +1,3 @@
-import domtoimage from '/bower_components/dom-to-image/src/dom-to-image.js';
-/* var domtoimage = require('/bower_components/dom-to-image/dist/dom-to-image.min.js'); */
-
 let guisado = document.getElementById('guisado')
 let addFood = document.getElementById('addFood')
 let addDate = document.getElementById('addDate')
@@ -10,7 +7,17 @@ let download = document.getElementById('download')
 
 addDate.onclick = () => {
   if(date.value.length > 0){
-    fecha.innerHTML = date.value
+    let fechaHoy = date.value
+    let fechaAño1 = fechaHoy.charAt(0)
+    let fechaAño2 = fechaHoy.charAt(1)
+    let fechaAño3 = fechaHoy.charAt(2)
+    let fechaAño4 = fechaHoy.charAt(3)
+    let fechaMes1 = fechaHoy.charAt(5)
+    let fechaMes2 = fechaHoy.charAt(6)
+    let fechaDia1 = fechaHoy.charAt(8)
+    let fechaDia2 = fechaHoy.charAt(9)
+    let format = `${fechaDia1}${fechaDia2}/${fechaMes1}${fechaMes2}/${fechaAño1}${fechaAño2}${fechaAño3}${fechaAño4}`
+    fecha.innerHTML = format
     hoy.innerHTML = 'HOY EN SAGAZ'
   }
 }
@@ -27,6 +34,7 @@ addFood.onclick = () => {
     let quitar = document.createElement('button')
       quitar.id = 'quitar'
       quitar.classList.add('quitar')
+      quitar.innerHTML = 'x '
       escribir.appendChild(quitar)
       quitar.onclick = () => {
         quitar.parentElement.remove()
@@ -34,12 +42,10 @@ addFood.onclick = () => {
   }
 }
 
-download.onclick = () => {
-  domtoimage.toJpeg(document.getElementById('menu'), { quality: 1 })
-  .then(function (dataUrl) {
-    var link = document.createElement('a');
-    link.download = 'menu.jpeg';
-    link.href = dataUrl;
-    link.click();
-  });
-}
+$(document).ready(function() {
+  $(download).click(function() {
+    domtoimage.toBlob(document.getElementById('menu')).then(function(blob) {
+      window.saveAs(blob, 'output.jpg')
+    })
+  })
+})
