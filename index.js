@@ -1,3 +1,5 @@
+import html2canvas from 'html2canvas';
+
 let guisado = document.getElementById('guisado')
 let addFood = document.getElementById('addFood')
 let addDate = document.getElementById('addDate')
@@ -42,10 +44,17 @@ addFood.onclick = () => {
   }
 }
 
-$(document).ready(function() {
+download.onclick = () => {
+  html2canvas(document.body).then(function(canvas) {
+    document.body.appendChild(canvas);
+  });
+}
+
+
+/* $(document).ready(function() {
   $(download).click(function() {
     domtoimage.toBlob(document.getElementById('menu')).then(function(blob) {
       window.saveAs(blob, 'output.jpg')
     })
   })
-})
+}) */
