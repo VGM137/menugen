@@ -4,12 +4,16 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="index.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Chau+Philomene+One&family=Chelsea+Market&family=Delius+Unicase&family=Expletus+Sans:wght@500&family=Finger+Paint&family=Margarine&display=swap');
+    </style>
+  <link rel="stylesheet" href="index.css">
+<!--   <link rel="preconnect" href="https://fonts.gstatic.com"> -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
 </head>
 <body>
-
+  <main id='principal' class="principal">
     <section id="menu" class="menu">
       <div id="container" class="container">
         <div id="encabezado" class="encabezado">
@@ -26,18 +30,34 @@
         </div>
       </div>
     </section>
-
-  <section id="entradas" class="entradas">  
-    <input id="date" class='date' type="date">
-    <button id="addDate" class="addDate">Actualizar</button>
-    <input id="guisado" class="guisado" type="text">
-    <button id="addFood" class="addFood">Agregar</button>
-    <button id="download" class="download">Descargar</button>
-  </section>
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <section id="entradas" class="entradas">  
+      <div id="enter-container" class="enter-container">
+        <input id="date" class='date enter' type="date">
+      </div>
+        <div id="btn-container" class="btn-container">
+          <button id="addDate" class="addDate btn">Actualizar</button>
+        </div>
+      <div id="enter-container" class="enter-container">
+        <input id="guisado" class="guisado enter" type="text" placeholder="Ingresar guisado">
+      </div>
+        <div id="btn-container" class="btn-container">
+          <button id="addFood" class="addFood btn">Agregar</button>
+        </div>
+      <div id="downloadBtn" class="downloadBtn">
+        <button id="download" class="download btn">Generar imagen</button>
+      </div>
+      <div id="link" class="link">
+        <a id="linkGo" class="linkGo"></a>
+      </div>
+    </section>
+  </main>
+
+  
+<!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
-  <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
-  <script typeof="module" src="/index.js"></script>
+  <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="module" src="/index.js"></script>
 </body>
 </html>

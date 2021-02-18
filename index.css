@@ -1,14 +1,25 @@
 body{
-  font-size: 4em;
-  font-family: 'Bebas Neue'
+  margin: 0;
+  font-size: 2.2em;
+  font-family: 'Finger Paint';
+  background-color: black;
+}
+.principal{
+  width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 750px auto;
+  grid-template-rows: 720px;
 }
 .menu{
-  width: 1200px;
-  height: 1200px;
+  width: 700px;
+  height: 700px;
+  margin: auto;
   background: rgb(60,60,60);
   background: radial-gradient(circle, rgba(60,60,60,1) 0%, rgba(0,0,0,1) 100%);
   display: flex;
   position: relative;
+  box-shadow: 0px 0px 16px 0px #333333;
 }
 .container{
   margin: auto;
@@ -16,20 +27,23 @@ body{
   display: block;
 }
 .encabezado-container{
-  max-width: 90%;
+  max-width: 100%;
   margin: 0 auto;
 }
 .encabezado{
   color: white;
-  display: block;
+  display: flex;
   margin: auto;
   text-align: center;
-  border-bottom: solid 1px white;
+  background-image: linear-gradient(to right, white 50%, rgba(255,255,255,0) 0%);
+  background-position: bottom;
+  background-size: 12px 3px;
+  background-repeat: repeat-x;
 }
 .fecha{
   display: flex;
   height: 1em;
-  width: 40%;
+  width: 100%;
   margin: 5px auto;
   text-align-last: justify;
   align-items: center;
@@ -46,6 +60,7 @@ body{
   justify-content: center;
 }
 .guisados{
+  width: auto;
   color: white;
   text-align: center;
   box-sizing: border-box;
@@ -70,7 +85,7 @@ body{
   border: solid 1px white;
 }
 .opcion{
-  width: 90%;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin: 25px auto;
@@ -79,11 +94,14 @@ body{
   line-height: 1em;
 }
 .pie{
-  border-top: solid 1px white;
   color: white;
   text-align: center;
   box-sizing: border-box;
   padding: 10px 0;
+  background-image: linear-gradient(to right, white 50%, rgba(255,255,255,0) 0%);
+  background-position: top;
+  background-size: 12px 3px;
+  background-repeat: repeat-x;
 }
 .pie-mensaje{
   height: 1em;
@@ -92,3 +110,86 @@ body{
   align-items: center;
   justify-content: center;
 }
+
+.entradas{
+  min-width: 100px;
+  max-width: 200px;
+  margin: auto;
+}
+.enter-container{
+  width: 100%;
+  display: flex;
+  margin: auto;
+  margin-top: 50px;
+  margin-bottom: 15px;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.btn-container{
+  width: auto;
+  display: flex;
+  margin: 10px auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.downloadBtn{
+  width: auto;
+  display: flex;
+  margin: 50px auto;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+.btn{
+  font-weight: 500;
+  height: auto;
+  width: auto;
+  color: #bbbbbb;
+  background-color: #333333;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0px 0px 5px 0px #b1b1b1;
+  box-sizing: border-box;
+}
+.enter{
+  width: 100%;
+  color: white;
+  background-color: rgba(0,0,0,0);
+  border: none;
+  border-bottom: 1px solid white;
+  outline: none;
+}
+.link{
+/*   border: solid 1px white; */
+  height: auto;
+}
+
+.linkGo{
+  display: flex;
+  color: white;
+  height: auto;
+  justify-content: center;
+  font-size: .5em;
+  line-break: anywhere;
+}
+
+/* .date{
+  border: 0;
+  border-bottom: 1px solid gray;
+} */
+/* .guisado{
+  width: 90%;
+  box-sizing: border-box;
+  border: 0;
+  border-bottom: 1px solid gray;
+} */
+
+/* @media screen and (max-width: 1000px){
+  .menu{
+    width: 700px;
+    height: 700px;
+  }
+} */
