@@ -1,5 +1,7 @@
 let guisado = document.getElementById('guisado')
+
 let addFood = document.getElementById('addFood')
+
 let addDate = document.getElementById('addDate')
 let date = document.getElementById('date')
 let fecha = document.getElementById('fecha')
@@ -25,13 +27,15 @@ addDate.onclick = () => {
   }
 }
 
-addFood.onclick = () => {
+const addTheFood = () => {
   let texto = guisado.value
   if(texto.length > 0){
     let escribir = document.createElement('p')
       escribir.id = 'opcion'
       escribir.classList.add('opcion')
       escribir.innerHTML = texto
+      escribir.draggable = true
+      escribir.ondragover="event.preventDefault()"
       guisados.appendChild(escribir)
       guisado.value = ''
     let quitar = document.createElement('button')
@@ -42,15 +46,28 @@ addFood.onclick = () => {
       quitar.onclick = () => {
         quitar.parentElement.remove()
       }
+      getFocus()
   }
 }
-
+guisado.addEventListener('keyup', function(event){
+  if (event.code === 'Enter') {
+    event.preventDefault();
+    addFood.click();
+  }
+})
+addFood.addEventListener('click', addTheFood)
+  
+function getFocus() {
+    guisado.focus();
+}
+console.log(document.getElementById('menu').outerHTML)
 async function createImage() {
   const payload = { 
     html: document.getElementById('menu').outerHTML,
     css: "body { font-size: 2.2em; font-family: 'Finger Paint'; } .menu { width: 700px; height: 700px; background: rgb(60,60,60); background: radial-gradient(circle, rgba(60,60,60,1) 0%, rgba(0,0,0,1) 100%); display: flex; position: relative; } .container { margin: auto; width: 80%; display: block; } .encabezado-container { max-width: 90%; margin: 0 auto; } .encabezado{ color: white; display: flex; margin: auto; text-align: center; background-image: linear-gradient(to right, white 50%, rgba(255,255,255,0) 0%); background-position: bottom; background-size: 12px 3px; background-repeat: repeat-x; } .fecha{ display: flex; height: 1em; width: 40%; margin: 5px auto; text-align-last: justify; align-items: center; justify-content: center; } .hoy{ margin: 5px auto; margin-bottom: 15px; height: 1em; width: 100%; box-sizing: border-box; display: flex; align-items: center; justify-content: center; } .guisados{ width: auto; color: white; text-align: center; box-sizing: border-box; padding: 10px 0; } .quitar{ display: none; } .opcion{ width: 100%; display: flex; justify-content: center; margin: 25px auto; text-transform: uppercase; text-align: center; line-height: 1em; } .pie{ color: white; text-align: center; box-sizing: border-box; padding: 10px 0; background-image: linear-gradient(to right, white 50%, rgba(255,255,255,0) 0%); background-position: top; background-size: 12px 3px; background-repeat: repeat-x; } .pie-mensaje { height: 1em; box-sizing: border-box; margin: auto; align-items: center; justify-content: center; }", 
     google_fonts: 'Finger Paint'
   };
+  console.log(payload)
 
   let headers = { 
     auth: {
@@ -58,14 +75,16 @@ async function createImage() {
       password: 'c5cf4969-de5a-4587-ac59-533cc37cd6dd'
     },
     headers: {
-      'Content-Type': 'application/json'
+      'Content-Type': 'application/json',
+      /* "Access-Control-Allow-Origin": "*", */
     }
   }
   try {
-    const response = await axios.post('https://hcti.io/v1/image', JSON.stringify(payload), headers);
+    const response = await axios.post('https://hcti.io/v1/image', JSON.stringify(payload), headers );
+    console.log(response)
     link.innerHTML = `<a id="linkGo" class="linkGo" href=${response.data.url}>Guardar</a>`;
   } catch (error) {
-    console.error(error);
+    console.log(error);
   }
 }
 
